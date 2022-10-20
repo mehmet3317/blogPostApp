@@ -54,3 +54,18 @@ Caused by: org.h2.jdbc.JdbcSQLInvalidAuthorizationSpecException: Wrong user name
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:510)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
 	... 50 more
+2022-10-20 21:08:55 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM USERR \000d\000aDELETE [*]FROM USERR\000d\000aWHER ID=2"; SQL statement:
+SELECT * FROM USERR 
+DELETE FROM USERR
+WHER ID=2 [42000-214]
+2022-10-20 21:08:59 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM USERR \000d\000aDELETE [*]FROM USERR\000d\000aWHER ID=2"; SQL statement:
+SELECT * FROM USERR 
+DELETE FROM USERR
+WHER ID=2 [42000-214]
+2022-10-20 21:09:12 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM USERR \000d\000aDELETE [*]FROM USERR\000d\000aWHERE ID=2"; SQL statement:
+SELECT * FROM USERR 
+DELETE FROM USERR
+WHERE ID=2 [42000-214]

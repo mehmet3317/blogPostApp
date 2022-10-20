@@ -1,10 +1,138 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Blog :: Register</title>
+    <link rel="stylesheet" href="@{/css/style.css}">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<head>
+    <title>Register New Account </title>
 
+</head>
+
+<div class="container">
+    <h2>Spring Boot Blog Application</h2>
+    <hr/>
+    <a th:href="@{/}">Home</a>
+
+    <form action="#"
+          th:action="@{/register}"
+          th:object="${user}"
+          method="post">
+        <div>
+            <h3> Sign Up Here</h3>
+
+
+            <table align="center" cellpadding = "10">
+
+                <!----- First Name ---------------------------------------------------------->
+                <tr>
+                    <td>FIRST NAME</td>
+                    <td><input type="text" name="firstName" maxlength="30"/>
+                        (max 30 characters a-z and A-Z)
+                    </td>
+                </tr>
+
+                <!----- Last Name ---------------------------------------------------------->
+                <tr>
+                    <td>LAST NAME</td>
+                    <td><input type="text" name="lastName" maxlength="30"/>
+                        (max 30 characters a-z and A-Z)
+                    </td>
+                </tr>
+
+                <!----- User name-------------------------------------------------------->
+                <tr>
+                    <td>USER NAME</td>
+                    <td><input type="text" name="userName" maxlength="30"/>
+
+                    </td>
+                </tr>
+
+
+                <!----- Email  ---------------------------------------------------------->
+                <tr>
+                    <td>EMAIL</td>
+                    <td><input type="text" name="email" maxlength="100" /></td>
+                </tr>
+
+                <!----PASSWORD---------------------------------------------------------->
+                <tr>
+                    <td>PASSWORD</td>
+                    <td>
+                        <input type="text" name="password" minlength="6" />
+                        (characters a-z)
+                    </td>
+                </tr>
+
+                <!----- confirmation ----------------------------------------------------------->
+                <tr>
+                    <td>RETYPE PASSWORD</td>
+                    <td>
+                        <input type="text" name="retypePassword" minlength="6" />
+                        (characters a-z)
+
+                    </td>
+                </tr>
+
+
+
+                <!----- City ---------------------------------------------------------->
+                <tr>
+                    <td>CITY</td>
+                    <td><input type="text" name="city" maxlength="30" />
+                        (max 30 characters a-z and A-Z)
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>STREET</td>
+                    <td><input type="text" name="street" maxlength="30" />
+                        (max 30 characters a-z and A-Z)
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>HOUSE NUMBER</td>
+                    <td><input type="text" name="houseNr"  />
+
+                    </td>
+                </tr>
+
+                <!----- ZIP Code ---------------------------------------------------------->
+                <tr>
+                    <td>ZIP CODE</td>
+                    <td><input type="text" name="zipCode" maxlength="6" />
+                        (6 digit number)
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2" align="center">
+                        <button type="submit">Submit</button>
+
+                        <input type="reset" value="Reset">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2" align="center">
+                        <p class="py-2">Already have an account?
+                            <a href="/login">Sign-In</a></p>
+
+
+                    </td>
+                </tr>
+
+            </table>
+
+        </div>
+    </form>
+</div>
 </body>
 </html>

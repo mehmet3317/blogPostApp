@@ -16,7 +16,7 @@ public class LoginController {
     }
 
     @PostMapping
-    public String loginUser(@RequestParam(name = "username") String username,
+    public String loginUser(@RequestParam(name = "userame") String username,
                             @RequestParam(name = "password") String password){
 
         return "LoginPage.html";
