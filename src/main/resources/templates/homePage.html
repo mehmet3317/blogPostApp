@@ -10,6 +10,11 @@
 <body>
 <div class = "container">
     <h1> Blogpost Application</h1>
+    <h1 th:text="${'Welcome' + loggeduser.firstName}" th:if="${session.isAuthenticated == true && loggeduser!=null}"> Login Successfull</h1>
+    <a th:href="@{/logout}" th:if="${session.isAuthenticated}"> Log Out </a>
+
+
+
     <hr />
     <ul>
         <li><a th:href="@{/posts/new}">New Post</a></li>
@@ -24,11 +29,12 @@
             <br />
         </div>
 
+
     </div>
     <hr />
     <ul>
-        <li><a th:href="@{/register}">Register</a></li>
-        <li><a th:href="@{/login}">Login</a></li>
+        <li th:unless="${session.isAuthenticated}"><a th:href="@{/register}">Register</a></li>
+        <li th:unless="${session.isAuthenticated}"><a th:href="@{/login}">Login</a></li>
 
     </ul>
 
