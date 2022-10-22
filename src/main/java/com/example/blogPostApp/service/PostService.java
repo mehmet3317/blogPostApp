@@ -17,21 +17,23 @@ public class PostService {
     @Autowired
     private PostRepository postRepository;
 
-    public Optional<Post> getById(Long id) {
-
-        return null;
+    public Optional<Post> getById(Long id){
+        return postRepository.findById(id);
     }
 
     public List<Post> getAllPosts() {
 
-        //TODO by default it will be listed from most recent ones
+        //toDO by default it will be listed from most recent ones--done>
 
-        return null;
+        return postRepository.findAll();
     }
 
     public Post save(Post post) {
+        if(post.getId()==null){
+            post.setCreatedAt(LocalDateTime.now());
+        }
 
-        return null;
+        return postRepository.save(post) ;
     }
 
     public List<Post> sortByOldest() {
@@ -42,6 +44,7 @@ public class PostService {
     public List<Post> sortByPopularity() {
         return null;
     }
+
 
 
 }

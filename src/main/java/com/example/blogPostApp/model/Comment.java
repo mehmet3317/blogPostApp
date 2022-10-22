@@ -3,7 +3,7 @@ package com.example.blogPostApp.model;
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
-
+@Entity
 public class Comment {
 
     @Id

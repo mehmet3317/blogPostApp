@@ -25,12 +25,15 @@ public class Post {
 
     private LocalDateTime createdAt;
 
-
+   // @ManyToOne
     @NotNull
     @ManyToOne
-    @JoinColumn(name = "account_id", referencedColumnName = "id", nullable = false)
+  //  @JoinColumn(name = "account_id", referencedColumnName = "id", nullable = false)
     private Userr user;
-
+    @ManyToOne
+    @NotNull
+  //  @JoinColumn(name = "account_id", referencedColumnName = "id", nullable = false)
+   private Account account;
     @Override
     public String toString() {
         return "Post{" +
@@ -41,4 +44,6 @@ public class Post {
                 ", user=" + user +
                 '}';
     }
+
+
 }
