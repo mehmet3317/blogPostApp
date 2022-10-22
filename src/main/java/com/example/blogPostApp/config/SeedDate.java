@@ -12,6 +12,7 @@ import java.util.List;
 
 
     @Component
+
     public class SeedDate implements CommandLineRunner {
         @Autowired
         private PostService postService;
