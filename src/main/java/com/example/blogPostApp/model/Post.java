@@ -33,7 +33,7 @@ public class Post {
     @ManyToOne
     @NotNull
   //  @JoinColumn(name = "account_id", referencedColumnName = "id", nullable = false)
-   private Account account;
+ //  private Account account;
     @Override
     public String toString() {
         return "Post{" +
