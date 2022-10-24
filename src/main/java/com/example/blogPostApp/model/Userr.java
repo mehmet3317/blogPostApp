@@ -48,7 +48,6 @@ public class Userr {
                 ", password='" + password + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", posts=" + posts +
                 '}';
     }
 }

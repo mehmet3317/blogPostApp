@@ -35,10 +35,10 @@ public class PostController {
 
   @GetMapping("/posts/new")
     public String createNewPost(Model model){
-        Optional<Userr> optionalAccount = Optional.ofNullable(userService.findUserByUsername("userName"));
-        if(optionalAccount.isPresent()){
+        Optional<Userr> optionalUserr= userService.findUserByEmail("admin@email.com");
+        if(optionalUserr.isPresent()){
             Post post = new Post();
-            post.setUser(optionalAccount.get());
+            post.setUser(optionalUserr.get());
             model.addAttribute("post",post);
 
             return "post_new.html";
