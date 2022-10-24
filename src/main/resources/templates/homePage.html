@@ -5,12 +5,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="@{/css/style.css}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <title>Blog :: Home</title>
 </head>
 
 <body>
-<div class = "post-container">
-    <h1> Blogpost Application</h1>
+<!--<div class = "post-container">
+    <h1> Blogpost Application</h1>-->
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#"th:href="@{/}"><h1>Blogpost application</h1></a>
+        </div>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <div class="nav navbar-right">
+            <ul class="nav navbar-nav">
+
+                <li><a th:href="@{/login}">Login</a></li>
+
+                <li><a th:href="@{/register}">Register</a></li>
+            </ul>
+
+            </div>
+    </div>
+</nav>
+
+
     <h1 th:text="${'Welcome' + loggeduser.firstName}" th:if="${session.isAuthenticated == true && loggeduser!=null}"> Login Successfull</h1>
     <a th:href="@{/logout}" th:if="${session.isAuthenticated}"> Log Out </a>
 
@@ -33,13 +60,13 @@
 
     </div>
     <hr />
-    <ul>
+  <!--  <ul>
         <li th:unless="${session.isAuthenticated}"><a th:href="@{/register}">Register</a></li>
         <li th:unless="${session.isAuthenticated}"><a th:href="@{/login}">Login</a></li>
 
     </ul>
+-->
 
-</div>
 
 </body>
 </html>

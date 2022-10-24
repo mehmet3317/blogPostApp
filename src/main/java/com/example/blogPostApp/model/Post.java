@@ -28,10 +28,9 @@ public class Post {
    // @ManyToOne
     @NotNull
     @ManyToOne
-  //  @JoinColumn(name = "account_id", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
     private Userr user;
-    @ManyToOne
-    @NotNull
+
   //  @JoinColumn(name = "account_id", referencedColumnName = "id", nullable = false)
  //  private Account account;
     @Override
