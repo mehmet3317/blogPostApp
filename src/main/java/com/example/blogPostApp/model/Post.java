@@ -24,15 +24,14 @@ public class Post {
     private String body;
 
     private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 
-   // @ManyToOne
     @NotNull
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
     private Userr user;
 
-  //  @JoinColumn(name = "account_id", referencedColumnName = "id", nullable = false)
- //  private Account account;
+
     @Override
     public String toString() {
         return "Post{" +

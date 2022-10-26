@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,9 +29,8 @@
             <div class="nav navbar-right">
             <ul class="nav navbar-nav">
 
-                <li><a th:href="@{/login}">Login</a></li>
-
-                <li><a th:href="@{/register}">Register</a></li>
+                <li ><a th:href="@{/register}">Register</a></li>
+                <li ><a th:href="@{/login}">Login</a></li>
             </ul>
 
             </div>
@@ -53,19 +53,20 @@
                    th:text = "${post.title}">Title</a></h2>
         <h4 th:text=" 'Written by ' + ${post.user.firstName}">User First Name</h4>
             <h5 th:text = " 'Published on ' + ${post.createdAt}"> Created At</h5>
+            <h5 th:text = " 'Last Updated on' + ${post.updatedAt}"> Updated At</h5>
             <p th:text="${post.body}">body text</p>
             <br />
         </div>
 
 
     </div>
-    <hr />
-  <!--  <ul>
+
+  <!-- <ul>
         <li th:unless="${session.isAuthenticated}"><a th:href="@{/register}">Register</a></li>
         <li th:unless="${session.isAuthenticated}"><a th:href="@{/login}">Login</a></li>
 
-    </ul>
--->
+    </ul>-->
+
 
 
 </body>
