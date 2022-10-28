@@ -1,73 +1,155 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="@{/css/style.css}">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link th:href="@{/main.css}" rel="stylesheet" />
+
+    <title>Add Bootstrap to Thymeleaf</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+
     <title>Blog :: Home</title>
 </head>
-
 <body>
-<!--<div class = "post-container">
-    <h1> Blogpost Application</h1>-->
-<nav class="navbar navbar-inverse">
+<div class="bg-image"
+     style="background-image: url('https://mdbootstrap.com/img/Photos/Others/images/76.jpg');
+            height: 100vh">
+<div class="head"></div>
+
+<nav class="navbar navbar-light bg-light">
     <div class="container-fluid">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#"th:href="@{/}"><h1>Blogpost application</h1></a>
+            <a class="navbar-brand" th:href="@{/}">BlogPost Application</a>
         </div>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-            <div class="nav navbar-right">
-            <ul class="nav navbar-nav">
+        <ul class="nav navbar-nav">
 
-                <li ><a th:href="@{/register}">Register</a></li>
-                <li ><a th:href="@{/login}">Login</a></li>
-            </ul>
+            <form class="seach2" th:action="@{/search}" method="get">
+                <input type="text" name="keyword" th:value="${keyword}"  placeholder="Find by Post Id & Title" size="45" >
+                <button type="submit" class="btn btn-info" >Search</button>
+            </form>
+            <form class="reset">
+                <button th:href="@{/}" type="submit" class="btn btn-info" >Reset</button>
+            </form>
 
+        </ul>
+        <ul class="nav navbar-nav">
+            <div class="dropdown">
+                <button class="dropbtn">Sort By</button>
+                <div class="dropdown-content">
+                    <a th:href="@{'/page/' + ${currentPage} + '?sortField=createdAt&sortDir=' + ${reverseSortDir}}">Oldest</a>
+                    <a th:href="@{'/page/' + ${currentPage} + '?sortField=likes&sortDir=' + ${reverseSortDir}}">Most Popular</a>
+                </div>
             </div>
+        </ul>
+        <ul class="nav navbar-nav navbar-right"  sec:authorize="!isAuthenticated()">
+            <li><a th:href="@{/register}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a th:href="@{/login}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        </ul>
     </div>
 </nav>
+<div class="float-container">
+</div>
+    <div class="float-child">
 
+        <div class="wrapper d-flex align-items-stretch">
+            <nav id="sidebar">
+                <div class="img bg-wrap text-center py-4" style="background-image: url(images/bg_1.jpg);">
+                    <div class="user-logo">
+                        <div class="img" style="background-image: url(images/logo.jpg);"></div>
+                        <h2><a th:href="@{'/users/' + ${#authentication.name}}"  th:text = "${#authentication.name}">Title</a></h2>
+                    </div>
+                </div>
+                <ul class="list-unstyled components mb-5">
+                    <li class="active">
+                        <a th:href="@{'/users/' + ${#authentication.name}}"><span class="fa fa-home mr-3"></span> User Details Page</a>
+                    </li>
+                    <li sec:authorize="isAuthenticated()">
+                        <a class="fa fa-sign-out mr-3" th:href="@{/logout}">Log Out</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <a  th:each="user : ${users}">
+            <h2><a th:href="@{'/blogHomeUser/' + ${user.id}}" th:text = "${user.firstName}">Title</a></h2>
+            <td>
+        </a>
+    </div>
+    <div class="float-child">
 
-    <h1 th:text="${'Welcome' + loggeduser.firstName}" th:if="${session.isAuthenticated == true && loggeduser!=null}"> Login Successfull</h1>
-    <a th:href="@{/logout}" th:if="${session.isAuthenticated}"> Log Out </a>
+    <div class = "container">
+        <ul class="nav navbar-nav">
+            <div><i>Sorted by [[${sortField}]] in [[${sortDir}]] order</i></div>
+        </ul>
 
-
-
-    <hr />
-    <ul>
-        <li><a th:href="@{/posts/new}">New Post</a></li>
-    </ul>
-    <div class = "posts-container">
-        <div class = "post" th:each="post : ${posts}">
-            <h2><a th:href="@{'/posts/' + ${post.id}}"
-                   th:text = "${post.title}">Title</a></h2>
-        <h4 th:text=" 'Written by ' + ${post.user.firstName}">User First Name</h4>
-            <h5 th:text = " 'Published on ' + ${post.createdAt}"> Created At</h5>
-            <h5 th:text = " 'Last Updated on' + ${post.updatedAt}"> Updated At</h5>
+        <a th:if="${a == 1}" th:each="post : ${list}">
+            <h2><a th:href="@{'/posts/' + ${post.id}}" th:text = "${post.title}">Title</a></h2>
+            <td th:text="${post.title}">Name</td>
+            <h5 th:text=" 'Written by ' + ${post.user.firstName}">User First Name</h5>-->
+            <h5 th:text = " 'Publlished on ' + ${post.createdAt}" > Created At</h5>
             <p th:text="${post.body}">body text</p>
             <br />
+            <td>
+        </a>
+        <a th:unless="${a == 1}" th:each="post : ${listPosts}">
+            <h2><a th:href="@{'/posts/' + ${post.id}}" th:text = "${post.title}">Title</a></h2>
+            <td th:text="${post.title}">Name</td>
+            <h5 th:text=" 'Written by ' + ${post.user.firstName}">User First Name</h5>-->
+            <h5 th:text = " 'Publlished on ' + ${post.createdAt}" > Created At</h5>
+            <p th:text="${post.body}">body text</p>
+            <br />
+            <td>
+        </a>
+
+        <div>&nbsp;</div>
+
+        <div th:if="${totalPages > 1}">
+            Total Items: [[${totalItems}]]
+            &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;
+
+            <a th:if="${currentPage > 1}" th:href="@{'/page/1' + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">First</a>
+            <span th:unless="${currentPage > 1}">First</span>
+            &nbsp;&nbsp;
+
+            <a th:if="${currentPage > 1}" th:href="@{'/page/' + ${currentPage - 1} + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Previous</a>
+            <span th:unless="${currentPage > 1}">Previous</span>
+
+            &nbsp;&nbsp;
+
+            <span th:each="i: ${#numbers.sequence(1, totalPages)}">
+			<a th:if="${currentPage != i}" th:href="@{'/page/' + ${i} + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">[[${i}]]</a>
+			<span th:unless="${currentPage != i}">[[${i}]]</span>
+			&nbsp;
+		</span>
+
+            <a th:if="${currentPage < totalPages}" th:href="@{'/page/' + ${currentPage + 1} + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Next</a>
+            <span th:unless="${currentPage < totalPages}">Next</span>
+            &nbsp;&nbsp;
+
+            <a th:if="${currentPage < totalPages}" th:href="@{'/page/' + ${totalPages} + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Last</a>
+            <span th:unless="${currentPage < totalPages}">Last</span>
+
         </div>
+
+    </div>
 
 
     </div>
 
-  <!-- <ul>
-        <li th:unless="${session.isAuthenticated}"><a th:href="@{/register}">Register</a></li>
-        <li th:unless="${session.isAuthenticated}"><a th:href="@{/login}">Login</a></li>
+</div>
 
-    </ul>-->
+<script src="js/main.js"></script>
 
+</div>
 
-
+</div>
+ <div class="bg-image"
+     style="background-image: url('https://mdbootstrap.com/img/Photos/Others/images/76.jpg');
+            height: 100vh">
+    <div class="head"></div>
 </body>
-</html>

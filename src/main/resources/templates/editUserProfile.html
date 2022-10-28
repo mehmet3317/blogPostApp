@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Blog :: Update User</title>
+</head>
+<body>
+<div class="bg-image"
+     style="background-image: url('https://mdbootstrap.com/img/Photos/Others/images/76.jpg');
+            height: 100vh">
+    <div class="head"></div>
+<div class="container">
+    <a th:href="@{/}">Home</a>
+    <form action="#"
+          th:action="@{'/users/{id}'(id=${user.id})}"
+          th:object="${user}"
+          method="post">
+
+        <h2>Update User</h2>
+        <div>
+            <label for="new-post-title">firstName</label>
+            <input id="new-post-title" type="text" th:field="*{firstName}" placeholder="Title"/>
+        </div>
+        <div>
+            <label for="new-post-body">lastName</label>
+            <textarea id="new-post-body" th:field="*{lastName}"></textarea>
+        </div>
+        <div>
+        <label for="new-post-title">city</label>
+        <input id="new-post-title2" type="text" th:field="*{city}" placeholder="Title"/>
+        </div>
+        <div>
+            <label for="new-post-title">street</label>
+            <input id="new-post-title3" type="text" th:field="*{street}" placeholder="Title"/>
+        </div>
+        <div>
+            <label for="new-post-title">HouseNr</label>
+            <input id="new-post-title1" type="text" th:field="*{HouseNr}" placeholder="Title"/>
+        </div>
+        <div>
+            <label for="new-post-title">ZIP</label>
+            <input id="new-post-title0" type="text" th:field="*{ZIP}" placeholder="Title"/>
+        </div>
+
+        <button type="submit">Update User</button>
+    </form>
+</div>
+
+</body>
+</html>
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="utf-8">-->
+<!--    <meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1">-->
+<!--    <title>Blog :: Update User</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<div class="bg-image"-->
+<!--     style="background-image: url('https://mdbootstrap.com/img/Photos/Others/images/76.jpg');-->
+<!--            height: 100vh">-->
+<!--    <div class="head"></div>-->
+<!--<div class="container">-->
+
+<!--    <a th:href="@{/}">Home</a>-->
+<!--    <div class="card-body">-->
+<!--        <form th:action="@{/user/{id} (id=${user.id})}" th:object="${user}" method="post">-->
+<!--            <div class="form-group">-->
+
+<!--                <label>First Name</label>-->
+<!--                <input type="text"-->
+<!--                       name="firstName"-->
+<!--                       th:field="*{firstName}"-->
+<!--                       class="form-control"-->
+<!--                       placeholder="Title"/>-->
+<!--            </div>-->
+
+<!--            <div class="form-group">-->
+<!--                <label>Last Name</label>-->
+<!--                <input type="text"-->
+<!--                       name="lastName"-->
+<!--                       th:field="*{lastName}"-->
+<!--                       class="form-control"-->
+<!--                       placeholder="Title"/>-->
+<!--            </div>-->
+
+<!--            <div class="form-group">-->
+<!--                <label>Email</label>-->
+<!--                <input type="text"-->
+<!--                       name="email"-->
+<!--                       th:field="*{email}"-->
+<!--                       class="form-control"-->
+<!--                       placeholder="Title"/>-->
+<!--            </div>-->
+
+<!--            <div class="form-group">-->
+<!--                <label>City</label>-->
+<!--                <input type="text"-->
+<!--                       name="city"-->
+<!--                       th:field="*{city}"-->
+<!--                       class="form-control"-->
+<!--                       placeholder="Title"/>-->
+<!--            </div>-->
+
+<!--            <div class="form-group">-->
+<!--                <label>Street</label>-->
+<!--                <input type="text"-->
+<!--                       name="street"-->
+<!--                       th:field="*{street}"-->
+<!--                       class="form-control"-->
+<!--                       placeholder="Title"/>-->
+<!--            </div>-->
+
+<!--            <div class="form-group">-->
+<!--                <label>HouseNr</label>-->
+<!--                <input type="text"-->
+<!--                       name="houseNr"-->
+<!--                       th:field="*{houseNr}"-->
+<!--                       class="form-control"-->
+<!--                       placeholder="Title"/>-->
+<!--            </div>-->
+
+<!--            <div class="form-group">-->
+<!--                <label>ZIP</label>-->
+<!--                <input type="text"-->
+<!--                       name="ZIP"-->
+<!--                       th:field="*{ZIP}"-->
+<!--                       class="form-control"-->
+<!--                       placeholder="Title"/>-->
+<!--            </div>-->
+<!--            <button type="submit">Update User</button>-->
+
+
+
+            <!-- MEHMET
+            <form action="#"
+                 th:action="@{'/users/{id}'(id=${user.id})}"
+                    th:object="${user}"
+                    method="post">
+
+                  <h2>Update User</h2>
+                  <div>
+                      <label for="new-post-title">firstName</label>
+                      <input id="new-post-title" type="text" th:field="*{firstName}" placeholder="Title"/>
+                  </div>
+                  <div>
+                      <label for="new-post-body">lastName</label>
+                      <textarea id="new-post-body" th:field="*{lastName}"></textarea>
+                  </div>
+                  <button type="submit">Update User</button>
+              </form>    END MEHMET!-->
+
+<!--        </form>-->
+<!--    </div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</body>-->
+
+<!--</html>-->

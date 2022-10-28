@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Add Bootstrap to Thymeleaf</title>
+  <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+<!--  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">-->
+<!--    <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>-->
+<!--  </svg>-->
+  <title>Blog :: Post</title>
+</head>
+<body>
+<div class="bg-image"
+     style="background-image: url('https://mdbootstrap.com/img/Photos/Others/images/76.jpg');
+            height: 100vh">
+    <div class="head"></div>
+<div class="container">
+  <a th:href="@{/}">Home</a>
+  <div class="post">
+    <h2 th:text="${firstName}">Title</h2>
+    <h5 th:text="${lastName}">Created At</h5>
+  </div>
+    <ul>
+        <a th:each="post : ${posts}">
+        <div sec:authorize="isAuthenticated()">
+            <li><a th:href="@{'/blogHomeUser/new/' + ${post.user.email}}" class="btn btn-primary">New Post</a></li>
+        </div>
+        </a>
+    </ul>
+  <div class="comments">
+      <a  th:each="post : ${posts}">
+          <h2><a  th:text = "${post.title}">Title</a></h2>
+          <td th:text="${post.title}">Name</td>
+          <h5 th:text=" 'Written by ' + ${post.user.firstName}">User First Name</h5>-->
+          <h5 th:text = " 'Publlished on ' + ${post.createdAt}" > Created At</h5>
+          <p th:text="${post.body}">body text</p>
+          <br />
+          <td>
+      </a>
+
+  </div>
+
+</div>
+</div>
+</body>
+</html>

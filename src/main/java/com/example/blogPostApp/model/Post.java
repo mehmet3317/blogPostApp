@@ -24,13 +24,20 @@ public class Post {
     private String body;
 
     private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
+
+    private int likes;
+
+    @OneToMany(mappedBy = "post", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
+    private Collection<Comment> comments;
 
     @NotNull
     @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "account_id", referencedColumnName = "id", nullable = false)
     private Userr user;
 
+    public Post() {
+        this.likes = 0;
+    }
 
     @Override
     public String toString() {
@@ -42,6 +49,4 @@ public class Post {
                 ", user=" + user +
                 '}';
     }
-
-
 }

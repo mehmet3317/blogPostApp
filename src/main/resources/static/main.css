@@ -1,0 +1,183 @@
+/* Dropdown Button */
+.dropbtn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    margin-left: 180%;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+#sidebar {
+    min-width: 300px;
+    max-width: 300px;
+    background:blue;
+    color: #04AA6D;
+    /*color: #fff;*/
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    position: relative; }
+#sidebar .h6 {
+    color:white; }
+#sidebar.active {
+    margin-left: -300px; }
+#sidebar.active .custom-menu {
+    margin-right: -50px; }
+#sidebar.active .btn.btn-primary:before {
+    content: "\f053";
+    font-family: "FontAwesome";
+    right: 2px !important; }
+#sidebar.active .btn.btn-primary:after {
+    display: none; }
+#sidebar h1 {
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 20px; }
+#sidebar h1 .logo {
+    color: white;
+    display: block;
+    padding: 10px 30px;
+    background: #2f89fc; }
+#sidebar ul.components {
+    padding: 0; }
+#sidebar ul li {
+    font-size: 16px; }
+#sidebar ul li > ul {
+    margin-left: 10px; }
+#sidebar ul li > ul li {
+    font-size: 14px; }
+#sidebar ul li a {
+    padding: 15px 30px;
+    display: block;
+    color: rgba(255, 255, 255, 0.6);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+#sidebar ul li a span.notif {
+    position: relative; }
+#sidebar ul li a span.notif small {
+    position: absolute;
+    top: -3px;
+    bottom: 0;
+    right: -3px;
+    width: 12px;
+    height: 12px;
+    content: '';
+    background: red;
+    border-radius: 50%;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 8px; }
+#sidebar ul li a:hover {
+    color: #fff;
+    background: #2f89fc;
+    border-bottom: 1px solid #2f89fc; }
+#sidebar ul li.active > a {
+    background: transparent;
+    color: #fff; }
+#sidebar ul li.active > a:hover {
+    background: #2f89fc;
+    border-bottom: 1px solid #2f89fc; }
+@media (max-width: 991.98px) {
+    #sidebar {
+        margin-left: -300px; }
+    #sidebar.active {
+        margin-left: 0; }
+    #sidebar .custom-menu {
+        margin-right: -60px !important;
+        top: 10px !important; } }
+#sidebar .custom-menu {
+    display: inline-block;
+    position: absolute;
+    top: 20px;
+    right: 0;
+    margin-right: -35px;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s; }
+@media (prefers-reduced-motion: reduce) {
+    #sidebar .custom-menu {
+        -webkit-transition: none;
+        -o-transition: none;
+        transition: none; } }
+#sidebar .custom-menu .btn.btn-primary {
+    background: #2f89fc;
+    border-color: transparent;
+    position: relative;
+    color: #000;
+    width: 30px;
+    height: 30px; }
+#sidebar .custom-menu .btn.btn-primary:after, #sidebar .custom-menu .btn.btn-primary:before {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    font-family: "FontAwesome";
+    color: #fff; }
+#sidebar .custom-menu .btn.btn-primary:after {
+    content: "\f054";
+    left: 2px; }
+
+
+.float-container {
+    border: 3px solid #fff;
+    padding: 20px;
+    column-gap: 5px;
+}
+
+.float-child {
+    width: 20%;
+    float: left;
+    padding: 20px;
+    margin-left: 8%;
+}
+.container{
+    margin-left: 100px;
+}
+.head{
+    width: 6%;
+    float: left;
+    padding: 20px;
+    margin-left: 5%;
+}
+.reset{
+    margin-left: 53%;
+}
+.seach2{
+    margin-left: 53%;
+}
+.like{
+    justify-content: space-between;
+}
